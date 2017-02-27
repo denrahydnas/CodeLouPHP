@@ -1,0 +1,60 @@
+body {
+    background-image:url(../img/sandjpeg.jpeg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+
+div.title.jumbotron {
+    background-image: url(../img/globe.jpeg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    border-bottom: #006 groove 5px;
+}
+
+/* TEXT */
+
+h1, h2, h3, h6 {
+    font-family: "Poiret One";
+    color:antiquewhite;
+    font-size: 4em;
+}
+
+h2 {
+   font-size: 2em; 
+}
+
+h3 {
+    font-size: 2.5em;
+    color:#006;
+}
+
+h6 {
+    font-size: 1.2em;
+    color:#006;
+}
+
+a {
+    font-family:"Raleway";
+}
+
+.navbar-inverse .navbar-brand {
+    color:#006;
+}
+
+a:hover {
+    text-shadow: 4px 4px 10px #FFF;
+    text-decoration: none;
+}
+
+/* CONTENT */
+
+img.main {
+    max-width:300px;
+    border: #006 groove 5px;
+    margin-bottom: 30px;
+}

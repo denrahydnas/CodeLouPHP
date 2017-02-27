@@ -1,43 +1,63 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <title> Travelogue </title>
+    <title>Travelogue</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Poiret+One|Raleway:400,200' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-</head>
-<body>
- 
-<header>
-    <div class="jumbotron">
-        <h1 class="headline">My Travelogue</h1>
-        <h2 class="subhead">Where I've been and where I want to go next...</h2>
-        <nav>
-            <ul class="nav">
-                <li><a>Past Trips</a></li>
-                <li><a>Future Trips</a></li>
-                <li><a>Favorites</a></li>
-                <li><a>Manage Lists</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>    
-    
-<div class="random locations">
-    
-    <!--select random photos to show in each section-->
-    
-    <a href="past"><img src="img/Los-dedos.png" alt="Punta Del Este, Uruguay"><h5>Where I've been</h5></a>
-    <a href="future"><img src="img/jeju-do.png" alt="Jeju Island, South Korea"><h5>Where I want to go</h5></a>
-    <a href="faves"><img src="img/Giants-causeway.png" alt="Giant's Causeway, Northern Ireland"><h5>My Favorite Places</h5></a>
-    
-</div>     
+    <link rel="stylesheet" href="css/travstyle.css" type="text/css">
+  </head>
 
-        
-<footer>
-    <div class="wrapper">
-        <h6>&copy;SL9Design2017 - Code Louisville PHP CRUD Project</h6>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#past">Past Trips</a>
+            <a class="navbar-brand" href="#future">Future Trips</a>
+            <a class="navbar-brand" href="#faves">Favorites</a>
+            <a class="navbar-brand" href="#edit">Manage Trips</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="title jumbotron">
+      <div class="container">
+        <h1>My Travelogue</h1>
+        <h2>Where I've been and where I want to go next...</h2>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Manage Locations &raquo;</a></p>
+      </div>
     </div>
+
+    <div class="locations container"> 
+      <div class="row">
+        <div class="col-sm-8 col-md-6 col-lg-4 text-center">
+          <h3>Places I've Visited</h3>
+          <a href="past"><img class="main" src="img/Los-dedos.png" alt="Punta Del Este, Uruguay"></a>
+          <p><a class="btn btn-primary btn-sm" href="#" role="button">See More &raquo;</a></p>
+        </div>
+        <div class="col-sm-8 col-md-6 col-lg-4 text-center">
+          <h3>Travel Wish List</h3>
+          <a href="future"><img class="main" src="img/jeju-do.png" alt="Jeju Island, South Korea"></a>
+          <p><a class="btn btn-primary btn-sm" href="#" role="button">See More &raquo;</a></p>
+       </div>
+        <div class="col-sm-8 col-md-6 col-lg-4 text-center">
+          <h3>Favorite Places</h3>
+          <a href="faves"><img class="main" src="img/Giants-causeway.png" alt="Giant's Causeway, Northern Ireland"></a>
+          <p><a class="btn btn-primary btn-sm" href="#" role="button">See More &raquo;</a></p>
+        </div>
+      </div>
+      </div>
+      
+</body>
+
+    
+<footer>
+        <h6 class="credits text-center">&copy;SL9Design2017 - Code Louisville PHP CRUD Project</h6>
 </footer>
 
-</body>
 </html>
+
+
+   
