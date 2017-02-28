@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Travelogue</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One|Raleway:400,200' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/travstyle.css" type="text/css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="pasttrips.html">Past Trips</a>
+            <a class="navbar-brand" href="future.html">Future Trips</a>
+            <a class="navbar-brand" href="favorites.html">Favorites</a>
+            <a class="navbar-brand" href="editlist.html">Manage Trips</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="title jumbotron">
+      <div class="container">
+        <a href="index.html"><h1>My Travelogue</h1></a>
+        <h2>Manage Locations</h2>
+      </div>
+    </div>
+      
+<div class="container">
+    <div class="formbox">
+         <form>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" placeholder="South Korea">
+          </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" placeholder="Seoul">
+          </div>
+        <div class="form-group">
+            <label for="continent">Continent</label>
+            <input type="text" class="form-control" id="continent" placeholder="Asia">
+          </div>
+        <div class="form-group">
+            <label for="sights">What do you want to see/do?</label>
+            <input type="text" class="form-control" id="sights" placeholder="Visit Gyeonbukgeong">
+          </div>
+        <div class="form-group">
+            <label for="image">Add an image:</label>
+            <input type="file" id="image">
+            <p class="help-block">Please add a square image of the location (300px x 300px suggested) </p>
+          </div>
+        <div class="checkbox">
+            <label>
+              <input type="checkbox"> I have visited this location. 
+            </label>
+          </div>
+        <div class="checkbox">
+            <label>
+              <input type="checkbox"> This is one of my favorite places to visit. 
+            </label>
+          </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+        </div> 
+    </div>
+</body>
+    
+<footer>
+        <h6 class="credits text-center">&copy;SL9Design2017 - Code Louisville PHP CRUD Project</h6>
+</footer>
+
+</html>

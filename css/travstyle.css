@@ -20,8 +20,8 @@ div.title.jumbotron {
 
 h1, h2, h3, h6 {
     font-family: "Poiret One";
-    color:antiquewhite;
-    font-size: 4em;
+    color:#fff;
+    font-size: 3.7em;
 }
 
 h2 {
@@ -29,7 +29,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2.5em;
+    font-size: 2.3em;
     color:#006;
 }
 
@@ -51,10 +51,29 @@ a:hover {
     text-decoration: none;
 }
 
+label {
+    font-family:Raleway;
+    font-size: 1.2em;
+    color:#FFF;
+}
+
 /* CONTENT */
 
 img.main {
     max-width:300px;
     border: #006 groove 5px;
     margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color:#006;
+    border-color:#fff;
+}
+
+.formbox {
+    background-color:#006;
+    color:#fff;
+    padding:25px;
+    margin-bottom:50px;
+    border-radius:10px;
 }
