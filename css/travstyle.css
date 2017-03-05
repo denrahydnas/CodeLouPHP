@@ -9,7 +9,7 @@ body {
 
 /* HEADER */
 
-div.title.jumbotron {
+.jumbotron {
     background-image: url(../img/globe.jpeg);
     background-size: cover;
     background-repeat:no-repeat;
@@ -38,7 +38,7 @@ h6 {
     color:#006;
 }
 
-a {
+a, p {
     font-family:"Raleway";
 }
 
@@ -68,6 +68,7 @@ img.main {
 .btn-primary {
     background-color:#006;
     border-color:#fff;
+    font-family:"Poiret One";
 }
 
 .formbox {
@@ -76,4 +77,9 @@ img.main {
     padding:25px;
     margin-bottom:50px;
     border-radius:10px;
+}
+
+.centering {
+  float:none;
+  margin:0 auto;
 }
