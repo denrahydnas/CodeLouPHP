@@ -2,17 +2,23 @@
     $pagetitle="Travelogue Favorites";
     $subtitle ="Favorite Places";  
     include("incl/header.php"); 
+    include("incl/functions.php");    
 ?>
 
 <!-- display locations and images if favorite check box = true 
     allow to delete or update? -->
 
-    <div class="locations container"> 
-      <div class="centering text-center">
-          <h3>Favorite Places</h3>
-          <a href="faves"><img class="main" src="img/giants.png" alt="Giant's Causeway, Northern Ireland"></a>
-          <p><a class="btn btn-primary btn-sm" href="#" role="button">See More &raquo;</a></p>
-        </div>
-      </div>
+    
+ <div class="container read_list"> 
+    <div class="centering">
+          <ul class="fave_list">
+            <?php
+                foreach(get_fave_list() as $item){
+                    echo "<li>" . '<img class="list" src="img/' . $item['image'] . '">' . $item['city'] . ", " . $item['country'] . "</li>";
+                }
+            ?>
+          </ul>
+    </div>
+</div>
       
 <?php include("incl/footer.php"); ?>

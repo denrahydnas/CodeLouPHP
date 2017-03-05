@@ -13,17 +13,17 @@
       <div class="row">
         <div class="col-sm-8 col-md-6 col-lg-4 text-center">
           <h3>Places I've Visited</h3>
-          <a href="past"><img class="main" src="img/dedos.png" alt="Punta Del Este, Uruguay"></a>
+          <a href="pasttrips.php"><img class="main" src="img/dedos.png" alt="Punta Del Este, Uruguay"></a>
           <p><a class="btn btn-primary btn-sm" href="pasttrips.php" role="button">See More &raquo;</a></p>
         </div>
         <div class="col-sm-8 col-md-6 col-lg-4 text-center">
           <h3>Travel Wish List</h3>
-          <a href="future"><img class="main" src="img/jeju.png" alt="Jeju Island, South Korea"></a>
+          <a href="future.php"><img class="main" src="img/jeju.png" alt="Jeju Island, South Korea"></a>
           <p><a class="btn btn-primary btn-sm" href="future.php" role="button">See More &raquo;</a></p>
        </div>
         <div class="col-sm-8 col-md-6 col-lg-4 text-center">
           <h3>Favorite Places</h3>
-          <a href="faves"><img class="main" src="img/giants.png" alt="Giant's Causeway, Northern Ireland"></a>
+          <a href="favorites.php"><img class="main" src="img/giants.png" alt="Giant's Causeway, Northern Ireland"></a>
           <p><a class="btn btn-primary btn-sm" href="favorites.php" role="button">See More &raquo;</a></p>
         </div>
       </div>

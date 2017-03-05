@@ -57,13 +57,14 @@ label {
     color:#FFF;
 }
 
-/* CONTENT */
-
-img.main {
-    max-width:300px;
-    border: #006 groove 5px;
-    margin-bottom: 30px;
+li {
+    list-style-type: none;
+    font-family: "Raleway";
+    font-size: 1.5em;
+    color: #006;
 }
+
+/* CONTENT */
 
 .btn-primary {
     background-color:#006;
@@ -83,3 +84,25 @@ img.main {
   float:none;
   margin:0 auto;
 }
+
+.read_list {
+    background-color: rgba(255, 250, 240, .6);
+    border: #006 groove 5px; 
+    border-radius:10px;
+    margin: 50px;
+}
+ 
+/* IMAGES */
+
+img.main {
+    max-width:300px;
+    border: #006 groove 5px;
+    margin-bottom: 30px;
+}
+
+img.list {
+    max-width:100px;
+    border: #006 groove 5px;
+    margin: 30px;
+}
+
