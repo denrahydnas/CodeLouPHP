@@ -2,28 +2,40 @@
     $pagetitle="Manage Travelogue";
     $subtitle ="Manage Travelogue Locations";  
     include("incl/header.php"); 
-?>
 
-  <!-- Db:CodeLouisville; Table: travelogue; User:CodeLouPHP; Pwd:codelou-->    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $country = trim(filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING));
+        $city = trim(filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING));
+        $sights = trim(filter_input(INPUT_POST, 'sights', FILTER_SANITIZE_STRING));
+        $image = trim(filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING));
+        
+        if (empty($country) || empty($city)){
+            $error_message = "Please complete required fields (country and city)";
+        }else {
+            add_location($country, $city, $sights, $image);
+        }
+    }
+?>   
       
 <div class="container">
     <div class="formbox">
-         <form>
+        <?php
+            if (isset($error_message)) {
+            echo "<p class='message'>$error_message</p>";
+            }
+        ?>
+         <form class="add_form" method="post" action="editlist.php">
           <div class="form-group">
             <label for="country">Country</label>
             <input type="text" class="form-control" id="country" placeholder="South Korea">
           </div>
         <div class="form-group">
-            <label for="city">City</label>
+            <label for="city">City/State/Province/Area</label>
             <input type="text" class="form-control" id="city" placeholder="Seoul">
           </div>
         <div class="form-group">
-            <label for="continent">Continent</label>
-            <input type="text" class="form-control" id="continent" placeholder="Asia">
-          </div>
-        <div class="form-group">
             <label for="sights">What do you want to see/do there?</label>
-            <input type="text" class="form-control" id="sights" placeholder="Visit Gyeonbukgeong">
+            <input type="text" class="form-control" id="sights" placeholder="Visit Gyeonbukgung">
           </div>
         <div class="form-group">
             <label for="image">Add an image:</label>
