@@ -98,7 +98,7 @@ li {
 img.main {
     max-width:300px;
     border: #006 groove 5px;
-    margin-bottom: 30px;
+    margin: 25px;
 }
 
 img.list {

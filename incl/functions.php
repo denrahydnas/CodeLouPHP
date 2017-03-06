@@ -40,25 +40,27 @@ function get_random(){
     }
 }
 
-/*function add_location($country, $city, $sights, $image, $visited, $fave){
+function add_location($country, $city, $sights, $image, $visited, $fave){
       include 'connect.php';
     
-    $sql = 'INSERT INTO travelogue(id, country, city, sights, image) VALUES (?, ?, ?, ?, ?)';
+    $sql = 'INSERT INTO travelogue(country, city, sights, image, visited, fave) VALUES (?, ?, ?, ?, ?, ?)';
     try {
         $results = $db->prepare($sql);
-        $results->bindValue(2, $country, PDO::PARAM_STR);
-        $results->bindValue(3, $city, PDO::PARAM_STR);
-        $results->bindValue(4, $sights, PDO::PARAM_STR);
-        $results->bindValue(5, $image, PDO::PARAM_STR);
+        $results->bindValue(1, $country, PDO::PARAM_STR);
+        $results->bindValue(2, $city, PDO::PARAM_STR);
+        $results->bindValue(3, $sights, PDO::PARAM_STR);
+        $results->bindValue(4, $image, PDO::PARAM_STR);
+        $results->bindValue(5, $visited, PDO::PARAM_BOOL);
+        $results->bindValue(6, $fave, PDO::PARAM_BOOL);
         $results->execute();
-    }catch (Exception($e){
-        echo "Error: " / $e->getMessage() . ",br />";
+    } catch (Exception $e){
+        echo "Error: " . $e->getMessage() . "<br />";
         return false;
     }
     return true;
 }
 
-*/
+
 
 
 ?>
