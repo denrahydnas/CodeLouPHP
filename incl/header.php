@@ -27,7 +27,7 @@
         <a href="index.php"><h1>My Travelogue</h1></a>
     <!--each page should have unique h2 in header-->
         <h2><?php echo $subtitle ?></h2>
-    <!-- lose button on trip selector page-->
+    <!-- button for vacation picker-->
         <p><a class="btn btn-primary btn-lg" href="random.php" role="button">Vacation Selector &raquo;</a></p>
       </div>
     </div>
