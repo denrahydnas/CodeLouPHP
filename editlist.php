@@ -34,6 +34,7 @@
         ?>
          <form class="add_form" method="post" action="editlist.php">
           <div class="form-group">
+              <h2>Add to Travelogue</h2>
             <label for="country">Country</label>
             <input type="text" class="form-control" name="country" placeholder="South Korea">
           </div>
@@ -68,5 +69,21 @@
         </form>
         </div> 
     </div>
+
+
+<div class="container read_list"> 
+    <div class="centering">
+          <ul class="full_list">
+            <?php
+                foreach(get_full_list() as $item){
+                    echo "<li>" . '<img class="list" src="img/' . $item['image'] . '">' . $item['city'] . ", " . $item['country'] . "</li>";
+                    echo '<a class="edit" href="single.php"> Edit  </a>';
+                    echo '<a class="delete" href="index.php"> Delete  </a>'; <!--add Are You Sure? pop up to delete-->
+                }
+            ?>
+          </ul>
+    </div>
+</div>
+
 
 <?php include("incl/footer.php"); ?>

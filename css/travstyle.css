@@ -46,11 +46,6 @@ a, p {
     color:#006;
 }
 
-a:hover {
-    text-shadow: 4px 4px 10px #FFF;
-    text-decoration: none;
-}
-
 label {
     font-family:Raleway;
     font-size: 1.2em;
@@ -62,6 +57,23 @@ li {
     font-family: "Raleway";
     font-size: 1.5em;
     color: #006;
+}
+a:hover {
+    text-shadow: 4px 4px 10px #FFF;
+    text-decoration: none;
+}
+
+a.edit a.delete {
+    font-size:5px;
+    font-family:"Raleway";
+}
+
+a.delete:hover{
+    color:#900;
+}
+
+a.edit:hover {
+    color:#070;
 }
 
 /* CONTENT */
