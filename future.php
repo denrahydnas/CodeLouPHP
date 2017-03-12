@@ -13,7 +13,7 @@
           <ul class="wish_list">
             <?php
                 foreach(get_wish_list() as $item){
-                    echo "<li>" . '<img class="list" src="img/' . $item['image'] . '">' . $item['city'] . ", " . $item['country'] . "</li>";
+                    echo '<li><a href="single.php?id=' . $item["key"] . '">' . '<img class="list" src="img/' . $item['image'] . '">' . $item['city'] . ", " . $item['country'] . "</a></li>";
                 }
             ?>
           </ul>

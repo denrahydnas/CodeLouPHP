@@ -72,18 +72,23 @@
 
 
 <div class="container read_list"> 
-    <div class="centering">
-          <ul class="full_list">
+    <div class="centering ">
             <?php
                 foreach(get_full_list() as $item){
-                    echo "<li>" . '<img class="list" src="img/' . $item['image'] . '">' . $item['city'] . ", " . $item['country'] . "</li>";
-                    echo '<a class="edit" href="single.php"> Edit  </a>';
-                    echo '<a class="delete" href="index.php"> Delete  </a>'; <!--add Are You Sure? pop up to delete-->
+                    echo '<div class="row">' 
+                        . "<li class='col-xs-10 col-md-10'>
+                        <a href='single.php?id=" . $item["key"] . "'>" 
+                        . '<img class="list" src="img/' . $item['image'] . '">' 
+                        . $item['city'] . ", " . $item['country'] . '</li>';
+                    echo '<div class="col-xs-2 col-md-2">' . '<a class="edit" href="single.php?id=' . $item["key"] . '"> Edit  </a>';
+                    echo '<a class="delete" href="index.php">  Delete</a>' . '</div>' . '</div>'; 
+                    /*add Are You Sure? pop up to delete*/
                 }
             ?>
-          </ul>
     </div>
 </div>
+
+
 
 
 <?php include("incl/footer.php"); ?>

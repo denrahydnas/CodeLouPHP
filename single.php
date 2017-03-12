@@ -4,8 +4,11 @@
     include("incl/header.php"); 
     include("incl/functions.php");   
 
+if (isset($_GET['id'])) {
+    $id = $_GET["id"];
+}
 
-
+var_dump($id);
 ?>
 
 <!-- display single item -->
