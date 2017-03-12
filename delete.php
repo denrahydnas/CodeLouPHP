@@ -1,6 +1,6 @@
 <?php 
-    $pagetitle="Details";
-    $subtitle =""; 
+    $pagetitle="Delete Location";
+    $subtitle ="Delete Location from Travelogue";  
     include("incl/header.php"); 
     include("incl/functions.php");   
 
@@ -14,6 +14,8 @@ if(isset($_GET['id'])) {
 
   <div class="container read_list"> 
       <div class="centering text-center">
+          <h4>Are you sure you want to delete this location from the list?</h4>
+          <br>
           <?php
           if (!empty($id)) {
                 echo "<h3>" . $city . ", " . $country . "</h3><br />";
@@ -28,12 +30,10 @@ if(isset($_GET['id'])) {
                     echo "<h6> This is one of my favorite places to visit. </h6>";
                 } 
               } 
-                echo '<div class="text-center">' . '<a class="edit" href="single.php?id=' . $id . '"> Edit  </a>';
-                echo " / ";
-                echo '<a class="delete" href="delete.php?id=' . $id . '">  Delete</a>' . '</div>' . '</div>'; 
           
           ?>
-  
+          <p><a class="btn btn-primary btn-lg" href="index.php" role="button">YES, really, delete this location.</a></p>
+  <!-- ADD button to DELETE entry from DB -->
         </div>  
       </div> 
  

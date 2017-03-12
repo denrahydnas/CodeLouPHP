@@ -18,7 +18,7 @@ body {
 
 /* TEXT */
 
-h1, h2, h3, h6 {
+h1, h2, h3, h5, h6 {
     font-family: "Poiret One";
     color:#fff;
     font-size: 3.7em;
@@ -34,10 +34,15 @@ h3 {
 }
 
 h4 {
-    font-family:"Raleway"
+    font-family:Raleway;
     font-size: 2em;
     color:#006;
 }
+
+h5 {
+    font-size: 1.6em;
+    color:#006;
+}  
 
 h6 {
     font-size: 1.2em;
@@ -45,7 +50,7 @@ h6 {
 }
 
 a, p {
-    font-family:"Raleway";
+    font-family:Raleway;
 }
 
 .navbar-inverse .navbar-brand {
@@ -58,9 +63,9 @@ label {
     color:#FFF;
 }
 
-li a {
+li {
     list-style-type: none;
-    font-family: "Raleway";
+    font-family: Raleway;
     font-size: 1.5em;
 }
 
@@ -71,7 +76,7 @@ a:hover {
 
 a.edit a.delete {
     font-size:5px;
-    font-family:"Raleway";
+    font-family:Raleway;
 }
 
 a.delete:hover{

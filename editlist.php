@@ -81,8 +81,9 @@
                         . '<img class="list" src="img/' . $item['image'] . '">' 
                         . $item['city'] . ", " . $item['country'] . '</li>';
                     echo '<div class="col-xs-2 col-md-2">' . '<a class="edit" href="single.php?id=' . $item["key"] . '"> Edit  </a>';
-                    echo '<a class="delete" href="index.php">  Delete</a>' . '</div>' . '</div>'; 
-                    /*add Are You Sure? pop up to delete*/
+                    echo " / ";
+                    echo '<a class="delete" href="delete.php?id=' . $item["key"] . '">  Delete</a>' . '</div>' . '</div>'; 
+                    /*redirect to Are you sure? Delete page*/
                 }
             ?>
     </div>
