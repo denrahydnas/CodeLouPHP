@@ -2,7 +2,7 @@
     $pagetitle="Manage Travelogue";
     $subtitle ="Manage Travelogue Locations";  
     include("incl/header.php"); 
-    include("incl/functions.php"); 
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $country = trim(filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING));

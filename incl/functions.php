@@ -1,5 +1,6 @@
 <?php
 /* select only places that have been visited */
+
 function get_visited_list(){
   include 'connect.php';
     try{
@@ -11,6 +12,7 @@ function get_visited_list(){
 }
 
 /* select only places that have not been visited */
+
 function get_wish_list(){
   include 'connect.php';
     try{
@@ -22,6 +24,7 @@ function get_wish_list(){
 }
 
 /* select only places marked as favorites */
+
 function get_fave_list(){
   include 'connect.php';
     try{
@@ -33,6 +36,7 @@ function get_fave_list(){
 }
 
 /* read full db list */
+
 function get_full_list(){
   include 'connect.php';
     try{
@@ -43,16 +47,6 @@ function get_full_list(){
     }
 }
 
-/* randomly select place from fave and not visited lists */
-function get_random(){
-  include 'connect.php';
-    try{
-        return $db->query('SELECT `key`, country, city, image FROM travelogue WHERE visited = FALSE || fave = TRUE');
-    }catch (Exception $e) {
-        echo "Error!:" . $e->getMessage() . "</br>";
-        return false;
-    }
-}
 
 /*info on one location detail from set id*/
 
@@ -74,6 +68,7 @@ $sql = 'SELECT * FROM travelogue WHERE `key` = ?';
 
 
 /* adding locations to db */
+
 function add_location($country, $city, $sights, $image, $visited, $fave){
       include 'connect.php';
     
@@ -94,6 +89,52 @@ function add_location($country, $city, $sights, $image, $visited, $fave){
     return true;
 }
 
+/* randomly select place from fave and not visited lists */
 
+function get_random(){
+  include 'connect.php';
+    
+    /*get random number for id from count of items*/ 
+    
+    $notvisit_fave = 'SELECT * FROM travelogue WHERE visited = FALSE || fave = TRUE';
+     /*execute db query*/
+
+    try {
+        $statement = $db->prepare($notvisit_fave);
+        $statement->execute(); 
+        
+    }catch (Exception $e) {
+        echo "Error!:" . $e->getMessage() . "</br>";
+        return false;
+    }
+    
+    $results = $statement->fetchAll();
+    $amount = count($results);
+    $random = rand(0, ($amount-1)); // for index value
+    
+    $destination = $results[$random];  
+    $id = $destination["key"]; 
+    return $id;
+}
+
+
+/* delete specific id from database when set 
+
+function delete_detail($id){
+  include 'connect.php';
+
+$sql = 'DELETE * FROM travelogue WHERE `key` = ?';
+
+    try {
+        $results = $db->prepare($sql);
+        $results->bindValue(1, $id, PDO::PARAM_INT); 
+        $results->execute(); 
+    }catch (Exception $e){
+        echo "Error: " . $e->getMessage() . "<br />";
+        return false;
+    }
+    return $results->fetch();
+}
+*/
 
 ?>

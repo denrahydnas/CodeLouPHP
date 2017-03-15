@@ -2,7 +2,10 @@
     $pagetitle="Visited Places";
     $subtitle ="Where I've been...";  
     include("incl/header.php"); 
-    include("incl/functions.php");     
+
+
+//var_dump get_random()
+
 ?>
 
 <!-- display locations and images if visited check box = true 

@@ -2,6 +2,8 @@
     $pagetitle="Travelogue";
     $subtitle ="Where I've been and where I want to go next...";  
     include("incl/header.php"); 
+
+ 
 ?>
 
 <!-- display randomly selected locations and images for 3 categories

@@ -1,3 +1,7 @@
+<?php
+     include("incl/functions.php"); 
+?>
+
 
 <html lang="en">
   <head>
@@ -28,6 +32,6 @@
     <!--each page should have unique h2 in header-->
         <h2><?php echo $subtitle ?></h2>
     <!-- button for vacation picker-->
-        <p><a class="btn btn-primary btn-lg" href="random.php" role="button">Vacation Selector &raquo;</a></p>
+          <p><a class="btn btn-primary btn-lg" href="single.php?id=<?php echo get_random()?>" role="button">Vacation Selector &raquo;</a></p>
       </div>
     </div>

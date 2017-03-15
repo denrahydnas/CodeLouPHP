@@ -2,7 +2,7 @@
     $pagetitle="Travel Wish List";
     $subtitle ="Where I want to go next...";  
     include("incl/header.php"); 
-    include("incl/functions.php");    
+   
 ?>
 
 <!-- display locations and images if visited check box = false

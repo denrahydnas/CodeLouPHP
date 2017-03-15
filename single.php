@@ -2,12 +2,14 @@
     $pagetitle="Details";
     $subtitle =""; 
     include("incl/header.php"); 
-    include("incl/functions.php");   
+   
+
 
 if(isset($_GET['id'])) {
     /*$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT); - moved into get_detail function*/
     list($id, $country, $city, $sights, $image, $visited, $fave) = get_detail(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
 }
+
 ?>
 
  <!-- Add Details of single location selected, include sights)-->  
