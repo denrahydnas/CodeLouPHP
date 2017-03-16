@@ -1,5 +1,5 @@
 <?php
-/* select only places that have been visited */
+/* select only places that HAVE been visited */
 
 function get_visited_list(){
   include 'connect.php';
@@ -11,7 +11,7 @@ function get_visited_list(){
     }
 }
 
-/* select only places that have not been visited */
+/* select only places that have NOT been visited */
 
 function get_wish_list(){
   include 'connect.php';
@@ -97,6 +97,7 @@ function get_random(){
     /*get random number for id from count of items*/ 
     
     $notvisit_fave = 'SELECT * FROM travelogue WHERE visited = FALSE || fave = TRUE';
+    
      /*execute db query*/
 
     try {
@@ -108,9 +109,13 @@ function get_random(){
         return false;
     }
     
+    /* count items and get random index value */
+    
     $results = $statement->fetchAll();
     $amount = count($results);
-    $random = rand(0, ($amount-1)); // for index value
+    $random = rand(0, ($amount-1)); 
+    
+    /* pull id of random selected row for setting on single.php */
     
     $destination = $results[$random];  
     $id = $destination["key"]; 
@@ -118,23 +123,22 @@ function get_random(){
 }
 
 
-/* delete specific id from database when set 
+// delete specific id from database when set 
 
 function delete_detail($id){
   include 'connect.php';
 
-$sql = 'DELETE * FROM travelogue WHERE `key` = ?';
-
-    try {
-        $results = $db->prepare($sql);
-        $results->bindValue(1, $id, PDO::PARAM_INT); 
-        $results->execute(); 
+$delete_one = 'DELETE * FROM travelogue WHERE `key` = ?';
+ try {
+        $delete = $db->query($delete_one);
+        $delete->bindValue(1, $id, PDO::PARAM_INT); 
+        $delete->execute(); 
     }catch (Exception $e){
         echo "Error: " . $e->getMessage() . "<br />";
         return false;
     }
-    return $results->fetch();
+   
 }
-*/
+
 
 ?>

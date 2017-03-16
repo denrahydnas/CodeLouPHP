@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <div class="text-center">
           <button type="submit" class="btn btn-primary">Really, I want to delete this location.</button>
         </div>
-  <!-- ADD button to DELETE entry from DB -->
+  <!-- ADD button to DELETE entry from DB, then send back to manage page-->
         </div>  
       </div> 
  
