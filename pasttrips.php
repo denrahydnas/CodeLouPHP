@@ -11,8 +11,8 @@
 <!-- display locations and images if visited check box = true 
     allow to delete or update to favorite -->
 
- <div class="container read_list"> 
-    <div class="centering">
+ <div class="container"> 
+    <div class="read_list">
           <ul class="visited_list">
             <?php
                 foreach(get_visited_list() as $item){

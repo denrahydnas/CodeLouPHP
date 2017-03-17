@@ -67,12 +67,15 @@ $sql = 'SELECT * FROM travelogue WHERE `key` = ?';
 }
 
 
-/* adding locations to db */
+/* adding and editing locations */
 
-function add_location($country, $city, $sights, $image, $visited, $fave){
+function add_location($id, $country, $city, $sights, $image, $visited, $fave){
       include 'connect.php';
-    
+   if ($id) {
+    $sql = 'UPDATE travelogue SET country=?, city=?, sights=?, image=?, visited=?, fave=? WHERE `key` = ?';
+   } else {
     $sql = 'INSERT INTO travelogue(country, city, sights, image, visited, fave) VALUES (?, ?, ?, ?, ?, ?)';
+   }
     try {
         $results = $db->prepare($sql);
         $results->bindValue(1, $country, PDO::PARAM_STR);
@@ -81,6 +84,9 @@ function add_location($country, $city, $sights, $image, $visited, $fave){
         $results->bindValue(4, $image, PDO::PARAM_STR);
         $results->bindValue(5, $visited, PDO::PARAM_BOOL);
         $results->bindValue(6, $fave, PDO::PARAM_BOOL);
+        if ($id){
+        $results->bindValue(7, $id, PDO::PARAM_INT);
+        }
         $results->execute();
     } catch (Exception $e){
         echo "Error: " . $e->getMessage() . "<br />";

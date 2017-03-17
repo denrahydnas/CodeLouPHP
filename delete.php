@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
  <!-- Add Details of single location selected, include sights)-->  
 
   <div class="container read_list"> 
-      <div class="centering text-center">
+      <div class="text-center">
           <h4>Are you sure you want to delete this location from the list?</h4>
           <br>
           <?php

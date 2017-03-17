@@ -99,20 +99,20 @@ a.edit:hover {
     background-color:#006;
     color:#fff;
     padding:25px;
-    margin-bottom:50px;
+    margin:0 auto;
     border-radius:10px;
 }
 
-.centering {
+/*.centering {
   float:none;
   margin:0 auto;
-}
+}*/
 
 .read_list {
     background-color: rgba(255, 250, 240, .6);
     border: #006 groove 5px; 
     border-radius:10px;
-    margin: 50px;
+    margin: 0 auto;
     padding: 30px;
 }
  

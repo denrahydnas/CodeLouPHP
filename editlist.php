@@ -3,8 +3,15 @@
     $subtitle ="Manage Travelogue Locations";  
     include("incl/header.php"); 
 
+// edit location
+if(isset($_GET['id'])) {
+    list($id, $country, $city, $sights, $image, $visited, $fave) = get_detail(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+}
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+// add location
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $id  = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
         $country = trim(filter_input(INPUT_POST, 'country', FILTER_SANITIZE_STRING));
         $city = trim(filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING));
         $sights = trim(filter_input(INPUT_POST, 'sights', FILTER_SANITIZE_STRING));
@@ -15,7 +22,7 @@
         if (empty($country) || empty($city)){
             $error_message = "Please complete minimum required fields (country and city)";
         } else {
-            if (add_location($country, $city, $sights, $image, $visited, $fave)){
+            if (add_location($id, $country, $city, $sights, $image, $visited, $fave)){
                 echo "<h3 class='text-center'> Thanks! </h3>";
                 exit;
             }else {
@@ -23,6 +30,7 @@
             }
         }
     }
+
 ?>   
       
 <div class="container">
@@ -34,21 +42,46 @@
         ?>
          <form class="add_form" method="post" action="editlist.php">
           <div class="form-group">
-              <h2>Add to Travelogue</h2>
+              <h2><?php
+                 if (!empty($id)){
+                     echo "Edit Travelogue";
+                 } else {
+                     echo "Add to Travelogue";
+                 }?></h2>
             <label for="country">Country</label>
-            <input type="text" class="form-control" name="country" placeholder="South Korea">
+            <input type="text" class="form-control" name="country" value="<?php 
+            if (!empty($id)){
+                     echo $country;
+                 } else {
+                     echo " ";
+                 }?>">
           </div>
         <div class="form-group">
             <label for="city">City/State/Province/Area</label>
-            <input type="text" class="form-control" name="city" placeholder="Seoul">
+            <input type="text" class="form-control" name="city" value="<?php 
+            if (!empty($id)){
+                     echo $city;
+                 } else {
+                     echo " ";
+                 }?>">
           </div>
         <div class="form-group">
             <label for="sights">What do you want to see/do there?</label>
-            <input type="text" class="form-control" name="sights" placeholder="Visit Gyeonbukgung">
+            <input type="text" class="form-control" name="sights" value="<?php 
+            if (!empty($id)){
+                     echo $sights;
+                 } else {
+                     echo " ";
+                 }?>">
           </div>
         <div class="form-group">
             <label for="image">Add an image:</label>
-            <input type="file" name="image">
+            <input type="file" value="<?php 
+            if (!empty($id)){
+                     echo $image;
+                 } else {
+                echo " ";
+            }?>">
             <p class="help-block">Please add a square image (300px x 300px suggested) </p>
           </div>
         <div class="checkbox">
@@ -64,15 +97,24 @@
             </label>
           </div>
         <div class="text-center">
-          <button type="submit" class="btn btn-primary">Add Location</button>
+        <?php 
+            if (!empty($id)){
+                echo "<input type='hidden' name='id' value=" . $id . "'/>";
+            }?>
+          <input class="btn btn-primary" type="submit" value="<?php 
+            if (!empty($id)){
+                echo "Update";
+                 } else {
+                echo "Submit"; 
+            }?>">
         </div>
         </form>
         </div> 
     </div>
 
 
-<div class="container read_list"> 
-    <div class="centering ">
+<div class="container"> 
+    <div class="read_list">
             <?php
                 foreach(get_full_list() as $item){
                     echo '<div class="row">' 
@@ -80,7 +122,7 @@
                         <a href='single.php?id=" . $item["key"] . "'>" 
                         . '<img class="list" src="img/' . $item['image'] . '">' 
                         . $item['city'] . ", " . $item['country'] . '</li>';
-                    echo '<div class="col-xs-2 col-md-2">' . '<a class="edit" href="single.php?id=' . $item["key"] . '"> Edit  </a>';
+                    echo '<div class="col-xs-2 col-md-2">' . '<a class="edit" href="editlist.php?id=' . $item["key"] . '"> Edit  </a>';
                     echo " / ";
                     echo '<a class="delete" href="delete.php?id=' . $item["key"] . '">  Delete</a>' . '</div>' . '</div>'; 
                     /*redirect to Are you sure? Delete page*/

@@ -9,8 +9,8 @@
     allow to delete or update? -->
 
     
- <div class="container read_list"> 
-    <div class="centering">
+ <div class="container"> 
+    <div class="read_list">
           <ul class="fave_list">
             <?php
                 foreach(get_fave_list() as $item){
