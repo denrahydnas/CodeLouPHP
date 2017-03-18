@@ -31,8 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+if (isset($_GET['msg'])) {
+    $error_message= trim(filter_input(INPUT_GET, 'msg', FILTER_SANITIZE_STRING));
+}
 ?>   
-      
+   
+
+
 <div class="container">
     <div class="formbox">
         <?php
@@ -75,25 +80,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                  }?>">
           </div>
         <div class="form-group">
-            <label for="image">Add an image:</label>
-            <input type="file" value="<?php 
+            <label for="images">What should we feature an image of?</label>
+            <input type="text" class="form-control" name="image" value="<?php 
             if (!empty($id)){
                      echo $image;
                  } else {
-                echo " ";
-            }?>">
-            <p class="help-block">Please add a square image (300px x 300px suggested) </p>
+                     echo " ";
+                 }?>">
           </div>
-        <div class="checkbox">
+        <div class="checkbox">  <!-- Still a problem with edit checkboxes appearing correctly-->
             <label>
-                <input type="hidden" name="visited" value="0" />
-                <input type="checkbox" name="visited" value="1"> I have visited this location. 
+                <?php if(!empty($id)){
+                        echo '<input type="checkbox" name="visited" ';
+                            if($visited = 1){
+                                echo ' value="1" checked /';
+                            } elseif($visited = 0) {
+                                echo ' value="0" /';}
+                        }else {
+                            echo '<input type="hidden" name="visited" value="0"/>
+                                <input type="checkbox" name="visited" value="1"/';
+                        }?>  
+                /> I have visited this location. 
             </label>
           </div>
         <div class="checkbox">
             <label>
-                <input type="hidden" name="fave" value="0" />
-                <input type="checkbox" name="fave" value="1"> This is one of my favorite places to visit. 
+                  <?php if(!empty($id)){
+                        echo '<input type="checkbox" name="fave" ';
+                            if($fave = 1){
+                                echo ' value="1" checked /';
+                            } elseif($fave = 0) {
+                                echo ' value="0" /';}
+                        }else {
+                            echo '<input type="hidden" name="fave" value="0"/>
+                                <input type="checkbox" name="fave" value="1"/';
+                        }?>  
+                /> This is one of my favorite places to visit. 
             </label>
           </div>
         <div class="text-center">

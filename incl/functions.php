@@ -131,19 +131,23 @@ function get_random(){
 
 // delete specific id from database when set 
 
-function delete_detail($id){
+function delete_location($id){
   include 'connect.php';
 
-$delete_one = 'DELETE * FROM travelogue WHERE `key` = ?';
+$deletesql = 'DELETE FROM travelogue WHERE `key` = ?';
  try {
-        $delete = $db->query($delete_one);
-        $delete->bindValue(1, $id, PDO::PARAM_INT); 
-        $delete->execute(); 
+        $results = $db->prepare($deletesql);
+        $results->bindValue(1, $id, PDO::PARAM_INT); 
+        $results->execute(); 
     }catch (Exception $e){
         echo "Error: " . $e->getMessage() . "<br />";
         return false;
     }
-   
+    if ($results->rowCount() >0){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 

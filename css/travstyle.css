@@ -99,14 +99,9 @@ a.edit:hover {
     background-color:#006;
     color:#fff;
     padding:25px;
-    margin:0 auto;
+    margin:50px auto;
     border-radius:10px;
 }
-
-/*.centering {
-  float:none;
-  margin:0 auto;
-}*/
 
 .read_list {
     background-color: rgba(255, 250, 240, .6);
