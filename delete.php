@@ -1,15 +1,11 @@
 <?php 
     $pagetitle="Delete Location";
-    $subtitle ="Delete Location from Travelogue";  
-    include("incl/header.php"); 
-  
-
-if(isset($_GET['id'])) {
-    list($id, $country, $city, $sights, $image, $visited, $fave) = get_detail(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
-}
+    $subtitle ="Delete Location from Travelogue"; 
+    include("incl/functions.php");
 
 if (isset($_POST['delete'])){
-    if(delete_location(filter_input(INPUT_POST, $id, FILTER_SANITIZE_NUMBER_INT))) {
+    $id = ($_POST['delete']);
+    if(delete_location(filter_input(INPUT_POST, 'delete', FILTER_SANITIZE_NUMBER_INT))) {
         header('location: editlist.php?msg=Location+Deleted');
         exit;
     } else {
@@ -18,9 +14,18 @@ if (isset($_POST['delete'])){
     }
 }
 
+include("incl/header.php"); 
+
+
+if(isset($_GET['id'])) {
+    list($id, $country, $city, $sights, $image, $visited, $fave) = get_detail(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
+}
+
+
+
 ?>
 
- <!-- Add Details of single location selected, include sights)-->  
+ <!-- Show Details of single location selected, include sights)-->  
   <div class="container read_list"> 
       <div class="text-center">
           <h4>Are you sure you want to delete this location from the list?</h4>
@@ -42,13 +47,13 @@ if (isset($_POST['delete'])){
           
           ?>
         <div class="text-center">
-            <form method='post' action='editlist.php'>
+            <h3>Really, I want to delete this location.</h3>
+            <form method='post' action='delete.php'>
                     <?php 
-                    if (!empty($id)){
-                    echo "<input type='hidden' value='" . $id . "' name='delete'/><br>"; 
-                    echo '<input type="submit" class="btn btn-primary" value="Delete"/> <br>';
+                        if (!empty($id)){
+                        echo "<input type='hidden' value='" . $id . "' name='delete'/>"; 
+                        echo '<input type="submit" class="btn btn-primary" value="Delete"/>';
                     } ?>
-                <h6>Really, I want to delete this location.</h6>
             </form>
         </div>
   <!-- ADD button to DELETE entry from DB, then send back to manage page-->

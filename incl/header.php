@@ -1,5 +1,5 @@
 <?php
-     include("incl/functions.php"); 
+     include_once("incl/functions.php"); 
 ?>
 
 

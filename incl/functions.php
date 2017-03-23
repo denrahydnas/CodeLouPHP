@@ -71,6 +71,12 @@ $sql = 'SELECT * FROM travelogue WHERE `key` = ?';
 
 function add_location($id, $country, $city, $sights, $image, $visited, $fave){
       include 'connect.php';
+    if (!isset($visited)){
+        $visited=false;
+    }
+    if (!isset($fave)){
+        $fave=false;
+    }
    if ($id) {
     $sql = 'UPDATE travelogue SET country=?, city=?, sights=?, image=?, visited=?, fave=? WHERE `key` = ?';
    } else {
@@ -88,6 +94,7 @@ function add_location($id, $country, $city, $sights, $image, $visited, $fave){
         $results->bindValue(7, $id, PDO::PARAM_INT);
         }
         $results->execute();
+       
     } catch (Exception $e){
         echo "Error: " . $e->getMessage() . "<br />";
         return false;

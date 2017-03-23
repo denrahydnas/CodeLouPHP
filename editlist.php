@@ -83,38 +83,28 @@ if (isset($_GET['msg'])) {
             <label for="images">What should we feature an image of?</label>
             <input type="text" class="form-control" name="image" value="<?php 
             if (!empty($id)){
-                     echo $image;
-                 } else {
-                     echo " ";
-                 }?>">
+                echo $image;
+            } else {
+                echo "";
+            } ?>">
           </div>
         <div class="checkbox">  <!-- Still a problem with edit checkboxes appearing correctly-->
             <label>
-                <?php if(!empty($id)){
-                        echo '<input type="checkbox" name="visited" ';
-                            if($visited = 1){
-                                echo ' value="1" checked /';
-                            } elseif($visited = 0) {
-                                echo ' value="0" /';}
-                        }else {
-                            echo '<input type="hidden" name="visited" value="0"/>
-                                <input type="checkbox" name="visited" value="1"/';
-                        }?>  
+                <?php 
+                    echo '<input type="checkbox" name="visited" value="1"';
+                    if(!empty($id) && $visited == 1){
+                        echo ' checked ';
+                    }?>  
                 /> I have visited this location. 
             </label>
           </div>
         <div class="checkbox">
             <label>
-                  <?php if(!empty($id)){
-                        echo '<input type="checkbox" name="fave" ';
-                            if($fave = 1){
-                                echo ' value="1" checked /';
-                            } elseif($fave = 0) {
-                                echo ' value="0" /';}
-                        }else {
-                            echo '<input type="hidden" name="fave" value="0"/>
-                                <input type="checkbox" name="fave" value="1"/';
-                        }?>  
+                 <?php 
+                    echo '<input type="checkbox" name="fave" value="1"';
+                    if(!empty($id) && $fave == 1){
+                        echo ' checked ';
+                    }?>  
                 /> This is one of my favorite places to visit. 
             </label>
           </div>
