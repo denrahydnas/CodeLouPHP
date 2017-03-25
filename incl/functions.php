@@ -13,6 +13,12 @@ function get_visited_list() {
     }
 }
 
+// PULL random image from visited list for front page
+
+
+
+
+
 
 // SELECT only places that have NOT been visited 
 
@@ -28,6 +34,12 @@ function get_wish_list() {
     }
 }
 
+// PULL random image from NOT visited list for front page
+
+
+
+
+
 
 // SELECT only places marked as favorites
 
@@ -42,6 +54,13 @@ function get_fave_list() {
         return false;
     }
 }
+
+// PULL random image from favorites list for front page
+
+
+
+
+
 
 
 // READ full db list 
