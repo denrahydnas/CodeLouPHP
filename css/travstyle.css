@@ -1,8 +1,8 @@
 body {
-    background-image:url(../img/sandjpeg.jpeg);
-    background-repeat:no-repeat;
-    background-size:cover;
     background-attachment: fixed;
+    background-image: url(../img/sandjpeg.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 0;
     margin: 0;
 }
@@ -12,15 +12,15 @@ body {
 .jumbotron {
     background-image: url(../img/globe.jpeg);
     background-size: cover;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     border-bottom: #006 groove 5px;
 }
 
 /* TEXT */
 
-h1, h2, h3, h5, h6 {
+h1, h2 {
+    color: #fff;
     font-family: "Poiret One";
-    color:#fff;
     font-size: 3.7em;
 }
 
@@ -28,45 +28,45 @@ h2 {
    font-size: 2em; 
 }
 
-h3 {
+h3, h5, h6 {
+    color: #006;
+    font-family: "Poiret One";
     font-size: 2.3em;
-    color:#006;
 }
 
 h4 {
-    font-family:Raleway;
+    color: #006;
+    font-family: Raleway;
     font-size: 2em;
-    color:#006;
 }
 
 h5 {
     font-size: 1.6em;
-    color:#006;
 }  
 
 h6 {
     font-size: 1.2em;
-    color:#006;
+    padding-top:25px;
 }
 
 a, p {
-    font-family:Raleway;
+    font-family: Raleway;
 }
 
 .navbar-inverse .navbar-brand {
-    color:#006;
+    color: #006;
 }
 
 label {
-    font-family:Raleway;
+    color: #FFF;
+    font-family: Raleway;
     font-size: 1.2em;
-    color:#FFF;
 }
 
 li {
-    list-style-type: none;
     font-family: Raleway;
     font-size: 1.5em;
+    list-style-type: none;
 }
 
 a:hover {
@@ -75,38 +75,38 @@ a:hover {
 }
 
 a.edit a.delete {
-    font-size:5px;
-    font-family:Raleway;
+    font-family: Raleway;
+    font-size: 5px;
 }
 
 a.delete:hover{
-    color:#900;
+    color: #900;
 }
 
 a.edit:hover {
-    color:#070;
+    color: #070;
 }
 
 /* CONTENT */
 
 .btn-primary {
-    background-color:#006;
-    border-color:#fff;
-    font-family:"Poiret One";
+    background-color: #006;
+    border-color: #fff;
+    font-family: "Poiret One";
 }
 
 .formbox {
-    background-color:#006;
-    color:#fff;
-    padding:25px;
-    margin:50px auto;
-    border-radius:10px;
+    background-color: #006;
+    border-radius: 10px;
+    color: #fff;
+    padding: 25px;
+    margin: 50px auto;
 }
 
 .read_list {
     background-color: rgba(255, 250, 240, .6);
     border: #006 groove 5px; 
-    border-radius:10px;
+    border-radius: 10px;
     margin: 0 auto;
     padding: 30px;
 }
@@ -114,24 +114,26 @@ a.edit:hover {
 /* IMAGES */
 
 img.main {
-    max-width:300px;
     border: #006 groove 5px;
     margin: 25px;
+    max-width: 300px;
 }
 
 img.list {
-    max-width:100px;
     border: #006 groove 5px;
     margin: 30px;
+    max-width: 100px;
 }
 
 /* MEDIA QUERY FOR PHONES */
+
 @media (max-width: 600px) {
     
   img.main {
-    max-width:225px;
     margin: 20px auto;
+    max-width: 225px;
   }
+    
 .read_list {
     margin: 5px;
     padding: 10px;
