@@ -1,5 +1,5 @@
 <?php
-// SELECT only places that HAVE been visited 
+/*-----------SELECT only places that have been visited ---------------*/
 
 function get_visited_list() {
   include 'connect.php';
@@ -13,14 +13,40 @@ function get_visited_list() {
     }
 }
 
-// PULL random image from visited list for front page
+/* ---------PULL random image from VISITED list for front page-----------*/
 
+function get_image_visited() {
+  include 'connect.php';
+    
+// get selected list of items
+    
+    $visit = 'SELECT image FROM travelogue WHERE visited = TRUE';
+    
+// execute db query
 
+    try {
+        $statement = $db->prepare($visit);
+        $statement->execute(); 
+    }
+    catch (Exception $e) {
+        echo "Error!:" . $e->getMessage() . "</br>";
+        return false;
+    }
+    
+// count number of items and get random value for use as index
+    
+    $results = $statement->fetchAll();
+    $amount = count($results);
+    $random = rand(0, ($amount-1)); 
+    
+// get id of array item using random index
+    
+    $destination = $results[$random];  
+    $img = $destination["image"]; 
+    return $img;
+}
 
-
-
-
-// SELECT only places that have NOT been visited 
+/*-----------SELECT only places that have NOT been visited ---------------*/
 
 function get_wish_list() {
   include 'connect.php';
@@ -34,14 +60,41 @@ function get_wish_list() {
     }
 }
 
-// PULL random image from NOT visited list for front page
 
+/* ---------PULL random image from NOT VISITED list for front page-----------*/
 
+function get_image_future() {
+  include 'connect.php';
+    
+// get selected list of items
+    
+    $visit = 'SELECT image FROM travelogue WHERE visited = FALSE';
+    
+// execute db query
 
+    try {
+        $statement = $db->prepare($visit);
+        $statement->execute(); 
+    }
+    catch (Exception $e) {
+        echo "Error!:" . $e->getMessage() . "</br>";
+        return false;
+    }
+    
+// count number of items and get random value for use as index
+    
+    $results = $statement->fetchAll();
+    $amount = count($results);
+    $random = rand(0, ($amount-1)); 
+    
+// get id of array item using random index
+    
+    $destination = $results[$random];  
+    $img = $destination["image"]; 
+    return $img;
+}
 
-
-
-// SELECT only places marked as favorites
+/*----------------SELECT only places marked as favorites-----------------*/
 
 function get_fave_list() {
   include 'connect.php';
@@ -55,15 +108,40 @@ function get_fave_list() {
     }
 }
 
-// PULL random image from favorites list for front page
+/* ---------PULL random image from favorites list for front page-----------*/
 
+function get_image_fave() {
+  include 'connect.php';
+    
+// get selected list of items
+    
+$visit = 'SELECT image FROM travelogue WHERE fave = TRUE';
+    
+// execute db query
 
+    try {
+        $statement = $db->prepare($visit);
+        $statement->execute(); 
+    }
+    catch (Exception $e) {
+        echo "Error!:" . $e->getMessage() . "</br>";
+        return false;
+    }
+   
+// count number of items and get random value for use as index
+    
+    $results = $statement->fetchAll();
+    $amount = count($results);
+    $random = rand(0, ($amount-1)); 
+    
+// get id of array item using random index
+    
+    $destination = $results[$random];  
+    $img = $destination["image"]; 
+    return $img;
+}
 
-
-
-
-
-// READ full db list 
+/*-------------------READ full db list --------------------*/
 
 function get_full_list() {
   include 'connect.php';
@@ -77,8 +155,7 @@ function get_full_list() {
     }
 }
 
-
-// GET INFO on one location detail from set id
+/*----------------GET INFO on one location detail from set id------------------*/
 
 function get_detail($id) {
   include 'connect.php';
@@ -97,8 +174,7 @@ $sql = 'SELECT * FROM travelogue WHERE `key` = ?';
     return $results->fetch();
 }
 
-
-// ADD AND EDIT
+/*-------------------------ADD AND EDIT-------------------------*/
 
 function add_location($id, $country, $city, $sights, $image, $visited, $fave) {
     include 'connect.php';
@@ -139,8 +215,7 @@ function add_location($id, $country, $city, $sights, $image, $visited, $fave) {
     return true;
 }
 
-
-// RANDOM VACATION SELECTOR
+/* -------------RANDOM VACATION SELECTOR-----------------*/
 
 function get_random() {
   include 'connect.php';
@@ -173,8 +248,7 @@ function get_random() {
     return $id;
 }
 
-
-// DELETE IDed ITEM FROM DB
+/*-------------DELETE IDed ITEM FROM DB-----------------*/
 
 function delete_location($id){
   include 'connect.php';
