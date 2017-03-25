@@ -34,7 +34,7 @@ include_once("incl/functions.php");
             <h2><?php echo $subtitle ?></h2>
 <!-- button for vacation picker-->
             <p><a class="btn btn-primary btn-lg" 
-                href="single.php?id=<?php echo get_random($)?>" 
+                href="single.php?id=<?php echo get_random()?>" 
                 role="button">Vacation Selector &raquo;
             </a></p>
         </div>
