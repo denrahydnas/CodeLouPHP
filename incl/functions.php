@@ -1,144 +1,112 @@
 <?php
-/*-----------SELECT only places that have been visited ---------------*/
 
-function get_visited_list() {
-  include 'connect.php';
+/*-----------READ DB Items---------------*/
 
+function get_destinations($where) {
+    include 'connect.php';
     try {
-        return $db->query('SELECT `key`, country, city, image FROM travelogue WHERE visited = TRUE');
+        return $db->query('SELECT `key`, country, city, image FROM travelogue ' . $where);
     }
     catch (Exception $e) {
         echo "Error!:" . $e->getMessage() . "</br>";
         return false;
-    }
+    } 
+}
+
+/*-----------SORT only places that have been visited ---------------*/
+
+function get_visited_list() {
+    return get_destinations("WHERE visited = TRUE");
+}
+
+/*-----------SORT only places that have NOT been visited ---------------*/
+
+function get_wish_list() {
+  return get_destinations("WHERE visited = FALSE");
+}
+
+/*----------------SORT only places marked as favorites-----------------*/
+
+function get_fave_list() {
+  return get_destinations("WHERE fave = TRUE");
+}
+
+/* -------------GET random index of array ---------------*/
+
+function get_rand_index($statement) {
+    $results = $statement->fetchAll();
+    $amount = count($results);
+    $random = rand(0, ($amount-1));    
+    $destination = $results[$random]; 
+    return $destination;
 }
 
 /* ---------PULL random image from VISITED list for front page-----------*/
 
 function get_image_visited() {
-  include 'connect.php';
     
 // get selected list of items
+ 
+    $statement = get_visited_list();
     
-    $visit = 'SELECT image FROM travelogue WHERE visited = TRUE';
-    
-// execute db query
+// get id of array item using random index function
 
-    try {
-        $statement = $db->prepare($visit);
-        $statement->execute(); 
-    }
-    catch (Exception $e) {
-        echo "Error!:" . $e->getMessage() . "</br>";
-        return false;
-    }
-    
-// count number of items and get random value for use as index
-    
-    $results = $statement->fetchAll();
-    $amount = count($results);
-    $random = rand(0, ($amount-1)); 
-    
-// get id of array item using random index
-    
-    $destination = $results[$random];  
-    $img = $destination["image"]; 
+    $img = get_rand_index($statement)["image"]; 
     return $img;
 }
-
-/*-----------SELECT only places that have NOT been visited ---------------*/
-
-function get_wish_list() {
-  include 'connect.php';
-
-    try {
-        return $db->query('SELECT `key`, country, city, image FROM travelogue WHERE visited = FALSE');
-    }
-    catch (Exception $e) {
-        echo "Error!:" . $e->getMessage() . "</br>";
-        return false;
-    }
-}
-
 
 /* ---------PULL random image from NOT VISITED list for front page-----------*/
 
 function get_image_future() {
-  include 'connect.php';
     
 // get selected list of items
     
-    $visit = 'SELECT image FROM travelogue WHERE visited = FALSE';
+    $statement = get_wish_list();
     
-// execute db query
+// get id of array item using random index function
 
-    try {
-        $statement = $db->prepare($visit);
-        $statement->execute(); 
-    }
-    catch (Exception $e) {
-        echo "Error!:" . $e->getMessage() . "</br>";
-        return false;
-    }
-    
-// count number of items and get random value for use as index
-    
-    $results = $statement->fetchAll();
-    $amount = count($results);
-    $random = rand(0, ($amount-1)); 
-    
-// get id of array item using random index
-    
-    $destination = $results[$random];  
-    $img = $destination["image"]; 
+    $img = get_rand_index($statement)["image"]; 
     return $img;
-}
-
-/*----------------SELECT only places marked as favorites-----------------*/
-
-function get_fave_list() {
-  include 'connect.php';
-
-    try {
-        return $db->query('SELECT `key`, country, city, image FROM travelogue WHERE fave = TRUE');
-    }
-    catch (Exception $e) {
-        echo "Error!:" . $e->getMessage() . "</br>";
-        return false;
-    }
 }
 
 /* ---------PULL random image from favorites list for front page-----------*/
 
 function get_image_fave() {
+    
+// get selected list of items
+    
+ $statement = get_fave_list();
+    
+// get id of array item using random index function
+
+    $img = get_rand_index($statement)["image"]; 
+    return $img;
+}
+
+/* -------------RANDOM VACATION SELECTOR-----------------*/
+
+function get_random() {
   include 'connect.php';
     
 // get selected list of items
     
-$visit = 'SELECT image FROM travelogue WHERE fave = TRUE';
+    $notvisit_fave = 'SELECT * FROM travelogue WHERE visited = FALSE || fave = TRUE';
     
 // execute db query
 
     try {
-        $statement = $db->prepare($visit);
+        $statement = $db->prepare($notvisit_fave);
         $statement->execute(); 
     }
     catch (Exception $e) {
         echo "Error!:" . $e->getMessage() . "</br>";
         return false;
     }
-   
-// count number of items and get random value for use as index
     
-    $results = $statement->fetchAll();
-    $amount = count($results);
-    $random = rand(0, ($amount-1)); 
-    
-// get id of array item using random index
-    
-    $destination = $results[$random];  
-    $img = $destination["image"]; 
-    return $img;
+// get id of array item using random index function
+     
+    $id = get_rand_index($statement)["key"]; 
+    return $id;
 }
 
 /*-------------------READ full db list --------------------*/
@@ -215,39 +183,6 @@ function add_location($id, $country, $city, $sights, $image, $visited, $fave) {
     return true;
 }
 
-/* -------------RANDOM VACATION SELECTOR-----------------*/
-
-function get_random() {
-  include 'connect.php';
-    
-// get selected list of items
-    
-    $notvisit_fave = 'SELECT * FROM travelogue WHERE visited = FALSE || fave = TRUE';
-    
-// execute db query
-
-    try {
-        $statement = $db->prepare($notvisit_fave);
-        $statement->execute(); 
-    }
-    catch (Exception $e) {
-        echo "Error!:" . $e->getMessage() . "</br>";
-        return false;
-    }
-    
-// count number of items and get random value for use as index
-    
-    $results = $statement->fetchAll();
-    $amount = count($results);
-    $random = rand(0, ($amount-1)); 
-    
-// get id of array item using random index
-    
-    $destination = $results[$random];  
-    $id = $destination["key"]; 
-    return $id;
-}
-
 /*-------------DELETE IDed ITEM FROM DB-----------------*/
 
 function delete_location($id){
@@ -268,6 +203,5 @@ $deletesql = 'DELETE FROM travelogue WHERE `key` = ?';
         return false;
     }
 }
-
 
 ?>

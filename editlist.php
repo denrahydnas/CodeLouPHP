@@ -83,6 +83,7 @@ if (isset($_GET['msg'])) {
                 echo " ";
             } ?>">
     </div>
+<!----images loaded separately, but once added to img folder can be added here as string "place.png" ---->
     <div class="form-group">
         <label for="images">What should we feature an image of?</label>
             <input type="text" class="form-control" name="image" value="
