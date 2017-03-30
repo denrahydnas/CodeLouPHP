@@ -6,7 +6,7 @@ This is my project for the January-March 2017 Code Louisville PHP Track.
 
 I created a Travelogue app to record all of the places I have visited and to keep track of the places I want to visit. I have a hard time deciding where to go next, so I have built a vacation generator to suggest either a place I havent visited yet or one of my all time favorite places, that I would like to visit again someday. I have given the user a way to sort between past trips, wish list trips and favorites, in addition to the vacation selector. Clicking on the individual location gives a little bit more information, such as suggested sights and activites to do there. 
 
-I plan to host it at http://travelogue.sl9design.com.
+It is hosted at http://travelogue.sl9design.com.
 I hope you like it!
 
 

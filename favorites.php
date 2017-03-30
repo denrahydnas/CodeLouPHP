@@ -22,5 +22,5 @@ include("incl/header.php");
         </ul>
     </div>
 </div>
-      
+
 <?php include("incl/footer.php"); ?>

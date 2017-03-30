@@ -12,7 +12,7 @@ if(isset($_GET['id'])) {
 
 ?>
 
- <!-- Add Details of single location selected, include sights)-->  
+<!-- Add Details of single location selected, include sights)-->  
 
 <div class="container read_list"> 
     <div class="text-center">

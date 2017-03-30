@@ -23,35 +23,35 @@ if(isset($_GET['id'])) {
 
 ?>
 
- <!-- Show Details of single location selected-->  
+<!-- Show Details of single location selected-->  
 
 <div class="container read_list"> 
     <div class="text-center">
         <h4>Are you sure you want to delete this location from the list?</h4>
         <br>
     <?php
-        if (!empty($id)) {
-            echo "<h3>" . $city . ", " . $country . "</h3><br />";
-            echo '<img class="main" src="img/' . $image . '">';
-            echo "<h5> Sights & Activities: " . $sights . "</h5>";
-            if ($visited != 0) {
-                echo "<h6> I've traveled to this location. </h6>";
-            } else {
-                echo "<h6> I hope to go here someday. </h6>";
-            }
-            if ($fave != 0) {
-                echo "<h6> This is one of my favorite places to visit. </h6>";
-            } 
+    if (!empty($id)) {
+        echo "<h3>" . $city . ", " . $country . "</h3><br />";
+        echo '<img class="main" src="img/' . $image . '">';
+        echo "<h5> Sights & Activities: " . $sights . "</h5>";
+        if ($visited != 0) {
+            echo "<h6> I've traveled to this location. </h6>";
+        } else {
+            echo "<h6> I hope to go here someday. </h6>";
+        }
+        if ($fave != 0) {
+            echo "<h6> This is one of my favorite places to visit. </h6>";
         } 
+    } 
     ?>
         <div class="text-center">
             <h3>Really, I want to delete this location.</h3>
             <form method='post' action='delete.php'>
     <?php 
-        if (!empty($id)){
-            echo "<input type='hidden' value='" . $id . "' name='delete'/>"; 
-            echo '<input type="submit" class="btn btn-primary" value="Delete"/>';
-        } 
+    if (!empty($id)){
+        echo "<input type='hidden' value='" . $id . "' name='delete'/>"; 
+        echo '<input type="submit" class="btn btn-primary" value="Delete"/>';
+    } 
     ?>
             </form>
         </div> 

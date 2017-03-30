@@ -4,7 +4,7 @@ $pagetitle="Manage Travelogue";
 $subtitle ="Manage Travelogue Locations";  
 include("incl/header.php"); 
 
-// EDIT Location
+// GET info to put in fields for EDITING
 
 if(isset($_GET['id'])) {
     list($id, $country, $city, $sights, $image, $visited, $fave) = get_detail(filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -36,23 +36,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (isset($_GET['msg'])) {
     $error_message= trim(filter_input(INPUT_GET, 'msg', FILTER_SANITIZE_STRING));
     }
-
 ?>   
    
 <div class="container formbox">
     <?php
-        if (isset($error_message)) {
-            echo "<p class='message'>$error_message</p>";
-        }
+    if (isset($error_message)) {
+        echo "<p class='message'>$error_message</p>";
+    }
     ?>
 <form class="add_form" method="post" action="editlist.php">
     <div class="form-group">
         <h2> <?php
-            if (!empty($id)) {
-                echo "Edit Travelogue";
-            } else {
-                echo "Add to Travelogue";
-            } ?> </h2>
+        if (!empty($id)) {
+            echo "Edit Travelogue";
+        } else {
+            echo "Add to Travelogue";
+        } ?> </h2>
             
         <label for="country">Country</label>
             <input type="text" class="form-control" name="country" value="

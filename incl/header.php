@@ -4,7 +4,6 @@ include_once("incl/functions.php");
 
 ?>
 
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,7 +12,7 @@ include_once("incl/functions.php");
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
     <link href='https://fonts.googleapis.com/css?family=Poiret+One|Raleway:400,200' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/travstyle.css" type="text/css">
-    
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
